@@ -1,0 +1,74 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Trains";
+}
+
+<div id="app-container">
+    <div id="input-container" class="input-container">
+        <h2>Input</h2>
+        <textarea v-model="inputData" placeholder="Enter input here" rows="10" cols="100"></textarea>
+        <div v-if="errorMsg" class="text-danger">
+            {{errorMsg}}
+        </div>
+        <button v-on:click="submitInput" class="btn btn-primary">Submit</button>
+    </div>
+
+
+    <div v-if="results && results.length">
+        <h2>Results</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Output</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="result in results">
+                    <td>{{result.name}}:</td>
+                    <td>{{result.value}}</td>
+                    <td>{{result.description}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    inputData: '',
+                    results: [],
+                    errorMsg: ''
+                };
+            },
+            methods: {
+                submitInput() {
+                    let appObj = this;
+                    axios.post('/api/work',
+                        {
+                            'data': appObj.inputData
+                        }
+                    ).then(function(response) {
+                        if (response.data && response.data.error) {
+                            appObj.results = undefined;
+                            appObj.errorMsg = response.data.error;
+                        } else {
+                            // populate results
+                            appObj.results = response.data;
+                            appObj.errorMsg = undefined;
+                        }
+                    }).catch(function (error) {
+                        appObj.error = error;
+                    });
+
+                }
+            }
+        }).mount('#app-container');
+    </script>
+}
