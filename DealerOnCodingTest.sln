@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "WebApp\WebApp.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainsLib", "TrainsLib\TrainsLib.csproj", "{CA3D7E43-F358-403E-A5AF-3479F0A1F5EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainsLibTests", "TestLibTests\TrainsLibTests.csproj", "{9821689A-6EC0-42A8-A9AD-8946D33D35FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainsLibTests", "TrainsLibTests\TrainsLibTests.csproj", "{9821689A-6EC0-42A8-A9AD-8946D33D35FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
