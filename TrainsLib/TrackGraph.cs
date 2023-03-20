@@ -304,7 +304,7 @@ namespace TrainsLib
 
             foreach (KeyValuePair<int, int> connection in _tracks[source])
             {
-                visitedMin.Add(new Tuple<int, int>(source, connection.Key), connection.Value);
+                visitedMin[new Tuple<int, int>(source, connection.Key)] = connection.Value;
                 TraversalStats traversal = new TraversalStats(connection.Key, connection.Value, 1);
                 GetShortestDistance(traversal, destination, visitedMin, ref retVal);
             }
