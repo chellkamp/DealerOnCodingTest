@@ -1,7 +1,3 @@
-
-
-using TrainsLib;
-
 namespace TrainsLibTests
 {
     [TestClass]

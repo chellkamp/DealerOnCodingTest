@@ -35,6 +35,11 @@ namespace TrainsLib
                 char destination = val[1];
                 int distance = Int32.Parse(val.Substring(2));
 
+                if (distance <= 0)
+                {
+                    throw new InvalidDataException("Track length cannot be 0");
+                }
+
                 retVal.Add(new DistanceInfo(source, destination, distance));
 
                 startPos = m.Index + m.Length;
