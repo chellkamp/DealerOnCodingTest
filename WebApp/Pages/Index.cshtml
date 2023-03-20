@@ -5,19 +5,34 @@
 }
 
 <div id="app-container">
-    <div id="input-container" class="input-container">
-        <h2>Input</h2>
-        <textarea v-model="inputData" placeholder="Enter input here" rows="10" cols="100"></textarea>
-        <div v-if="errorMsg" class="text-danger">
-            {{errorMsg}}
+    <h2>Input</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <div>
+                    Enter any number of track definitions, separated by commas, for a set of stations <strong>A</strong>-<strong>E</strong>.
+                    A track definition is the start station, end station, and distance (positive whole number).
+                    Example:  "AB1, BA2" specifies one track from A to B with a distance of 1 and one track
+                    from B to A with a distance of 2.
+                </div>
+                <textarea
+                    v-model="inputData"
+                    class="form-control"
+                    placeholder="Enter track definitions separated by commas (Ex: AB1, BC2, CA3, AC3)."
+                    rows="10">
+                </textarea>
+                <div v-if="errorMsg" class="text-danger">{{errorMsg}}</div>
+            </div>
         </div>
-        <button v-on:click="submitInput" class="btn btn-primary">Submit</button>
+        <div class="row mt-3">
+            <div class="col-5 text-end">
+                <button v-on:click="submitInput" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
     </div>
 
-
+    <h2>Results</h2>
     <div v-if="results && results.length">
-        <h2>Results</h2>
-
         <table class="table">
             <thead>
                 <tr>
@@ -34,6 +49,9 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div v-else>
+        <span class="text-black-50">Nothing to display.</span>
     </div>
 </div>
 
