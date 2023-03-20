@@ -42,10 +42,7 @@
                 new GraphEntry() { Source = 3, Destination = 5, Distance = 1 },
 
                 // Invalid distance
-                new GraphEntry() { Source = 3, Destination = 4, Distance = -5 },
-
-                // Source == Destination
-                new GraphEntry() { Source = 3, Destination = 3, Distance = 2 }
+                new GraphEntry() { Source = 3, Destination = 4, Distance = -5 }
         };
 
             TrackGraph g = new TrackGraph(5);

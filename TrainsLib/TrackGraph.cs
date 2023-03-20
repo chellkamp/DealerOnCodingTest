@@ -100,11 +100,6 @@ namespace TrainsLib
                 throw new ArgumentException($"Invalid destination station: {destination}");
             }
 
-            if (source == destination)
-            {
-                throw new ArgumentException($"Source and destination cannot be same value: {source}");
-            }
-
             if (distance < 0)
             {
                 throw new ArgumentException($"Invalid distance: {distance}");
